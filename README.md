@@ -3,6 +3,8 @@
 this are my dotfiles. If a dotfile that I have is heavily inspired by someone elses work, Ill credit them.
 
 waybar based off of:
+
+
 style: https://github.com/afk-mario/dotfiles
 
 
