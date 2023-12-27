@@ -13,11 +13,12 @@ set $term kitty
 set $menu dmenu_path | wofi | xargs swaymsg exec --
 
 #window classes
-    assign [app_id="discord"]      workspace number 12
-    assign [app_id="tidal-hifi"]   workspace number 11
-    assign [app_id="strawberry"]   workspace number 11
-    assign [app_id="firefox"]      workspace number 1
-    assign [class="steam"]         workspace number 13
+    assign [app_id="discord"]      workspace $ws12
+    assign [app_id="tidal-hifi"]   workspace $ws11
+    assign [app_id="amberol"]      workspace $ws11
+    assign [app_id="strawberry"]   workspace $ws11
+    assign [app_id="firefox"]      workspace $ws1
+    assign [class="steam"]         workspace $ws13
 
 #autoexec
 
@@ -157,8 +158,8 @@ input "type:touchpad" {
     set $ws8     8
     set $ws9     9
     set $ws10   10
-    set $ws11   "music"
-    set $ws12   "voice"
+    set $ws11   "hifi"
+    set $ws12   "vc"
     set $ws13   "steam"
     set $ws14   14
     set $ws15   15
