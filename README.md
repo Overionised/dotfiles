@@ -1,6 +1,6 @@
 # dotfiles
 
-this are my dotfiles. If a dotfile that I have is heavily inspired by someone elses work, Ill credit them.
+this are my dotfiles. If a dotfile that I have is heavily inspired by someone elses work, I'll credit them.
 
 # waybar based off of: #
 
