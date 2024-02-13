@@ -12,7 +12,8 @@ set $term kitty
 # application launcher
 set $menu dmenu_path | wofi | xargs swaymsg exec --
 #monitor
-output HDMI-A-1 mode 3840x2160@60.000Hz scale 1
+output HDMI-A-1 pos 0 0 mode 3840x2160@60.000Hz scale 1
+output eDP-1  pos 3840 1300  mode 1920x1080 scale 1
 
 #inputs
 
@@ -20,7 +21,7 @@ output HDMI-A-1 mode 3840x2160@60.000Hz scale 1
 input "type:pointer" {
        natural_scroll disabled
        accel_profile "flat"
-       pointer_accel 0.3 # set mouse sensitivity (between -1 and 1)
+       pointer_accel 0 # set mouse sensitivity (between -1 and 1)
 
    }
 
@@ -42,12 +43,7 @@ input "type:touchpad" {
 
 #lock
 
-    bindsym $mod+shift+p exec swaylock -f
-    exec swayidle -w \
-          timeout 300 'swaylock -f -c 000000' \
-          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-          before-sleep 'swaylock -f -c 000000'
-
+# in progress
 
 #make stuff open quickly
     exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
@@ -158,6 +154,9 @@ input "type:touchpad" {
     set $wsF11 "F11"
     set $wsF12 "F12"
 
+    #switch workspace to monitor
+    bindsym $mod+m move workspace to output left
+    bindsym $mod+n move workspace to output right
 
     # Switch to workspace
     bindsym $mod+plus     workspace  $ws1
@@ -236,7 +235,7 @@ input "type:touchpad" {
 #window classes
     assign [app_id="discord"]      workspace $ws12
     assign [app_id="tidal-hifi"]   workspace $ws11
-    assign [app_id="amberol"]      workspace $ws11
+    assign [app_id="Amberol"]      workspace $ws11
     assign [app_id="strawberry"]   workspace $ws11
     assign [app_id="firefox"]      workspace $ws1
     assign [class="steam"]         workspace $ws13
@@ -312,7 +311,7 @@ bindsym $mod+r mode "resize"
 
 #colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #fbf1c7 #fbf1c7 #000000 #fbf1c7   #fbf1c7
+client.focused          #fbf1c7 #d79921 #000000 #fbf1c7   #fbf1c7
 client.focused_inactive #665c54 #665c54 #000000 #665c54   #665c54
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
