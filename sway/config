@@ -311,7 +311,7 @@ bindsym $mod+r mode "resize"
 
 #colors
 # class                 border  backgr. text    indicator child_border
-client.focused          #fbf1c7 #d79921 #000000 #fbf1c7   #fbf1c7
+client.focused          #fbf1c7 #fbf1c7 #000000 #fbf1c7   #fbf1c7
 client.focused_inactive #665c54 #665c54 #000000 #665c54   #665c54
 client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
@@ -323,6 +323,5 @@ bar {
      swaybar_command waybar
 }
 
-exec ~/.azotebg
-
+exec exec ~/.azotebg
 include /etc/sway/config.d/*
