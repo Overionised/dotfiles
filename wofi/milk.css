@@ -1,13 +1,13 @@
 window {
 margin: 0px;
-border: 1px solid #227c6e;
+border: 1px solid #ab3132;
 background-color: #050508;
 }
 
 #input {
 margin: 5px;
 border: none;
-color: #ebdbb2;
+color: #e9d8ba;
 background-color: #050508;
 }
 
@@ -31,9 +31,9 @@ border: none;
 #text {
 margin: 5px;
 border: none;
-color: #050508;
+color: #e9d8ba;
 }
 
 #entry:selected {
-background-color: #050508;
+background-color: transparent;
 }
