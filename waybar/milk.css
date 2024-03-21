@@ -9,7 +9,7 @@
 
 window#waybar {
   background: #050508;
-  color: #fbf1c7;
+  color: #e9d8ba;
 }
 
 #workspaces button {
@@ -54,7 +54,7 @@ window#waybar {
 }
 
 #clock {
-  border-bottom: 2px solid #ab3132;
+  border-bottom: 2px solid #227c6e;
 }
 
 #network {
@@ -120,7 +120,7 @@ window#waybar {
 }
 
 #battery {
-  background-color: #a24b7b;
+  background-color: #8fc0a6;
   color: #050508;
 }
 
@@ -131,11 +131,11 @@ window#waybar {
 
 #battery.discharging {
   color: #050508;
-  background-color: #ab3132;
+  background-color: #1f6b6f;
 }
 
 #battery.charging {
-  background-color: #a24b7b;
+  background-color: #8fc0a6;
   color: #050508;
 }
 
