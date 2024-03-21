@@ -13,7 +13,9 @@ set $term kitty
 set $menu dmenu_path | wofi | xargs swaymsg exec --
 #monitor
 output HDMI-A-1 pos 0 0 mode 3840x2160@60.000Hz scale 1
-output eDP-1  pos 3840 1300  mode 1920x1080 scale 1
+output HDMI-A-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
+output eDP-1  pos 3840 1600  mode 1920x1080 scale 1
+output eDP-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
 
 #inputs
 
@@ -121,9 +123,9 @@ input "type:touchpad" {
 
 # Workspaces:
     #ws
-    set $ws1     1
+    set $ws1     
     set $ws2     2
-    set $ws3     3
+    set $ws3     
     set $ws4     4
     set $ws5     5
     set $ws6     6
@@ -131,9 +133,9 @@ input "type:touchpad" {
     set $ws8     8
     set $ws9     9
     set $ws10   10
-    set $ws11   "hifi"
-    set $ws12   "vc"
-    set $ws13   "steam"
+    set $ws11    
+    set $ws12    
+    set $ws13    
     set $ws14   14
     set $ws15   15
     set $ws16   16
@@ -323,5 +325,4 @@ bar {
      swaybar_command waybar
 }
 
-exec exec ~/.azotebg
 include /etc/sway/config.d/*
