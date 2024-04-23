@@ -17,6 +17,12 @@ output HDMI-A-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
 output eDP-1  pos 3840 1600  mode 1920x1080 scale 1
 output eDP-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
 
+#power button
+bindsym XF86PowerOff exec $term
+
+ #actually quitting
+bindsym $mod+XF86PowerOff exec "shutdown -h now"
+
 #inputs
 
  #mouse
@@ -29,8 +35,8 @@ input "type:pointer" {
 
  #czech keyboard
 input "type:keyboard" {
-        xkb_layout cz
-        xkb_variant qwerty
+		xkb_layout cz
+		xkb_variant qwerty
     }
 
  #fan of natural scroll
