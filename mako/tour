@@ -1,16 +1,15 @@
-width=33%
-/* height3300 */
-lines=6
-mode=drun
-filter_rate=100
-matching=contains
-insensitive=true
-term=kitty
-allow_images=true
-parse_search=true
-allow_markup=true
-dmenu-parse_action=true
-drun-display_generic=true
-key_down=Tab
-key_expand=Right
-key_forward=Down
+#vim: syntax=config
+font="Source Code Pro" 9
+
+background-color=#0e0e0e
+progress-color=source #7c7c7c
+text-color=#a0a0a0
+padding=10
+margin=5
+
+border-size=2
+border-radius=5
+border-color=#7c7c7c
+
+layer=overlay
+on-button-middle=exec makoctl menu -n "$id" fuzzel -d
