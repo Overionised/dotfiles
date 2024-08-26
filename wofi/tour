@@ -1,16 +1,39 @@
-width=33%
-/* height3300 */
-lines=6
-mode=drun
-filter_rate=100
-matching=contains
-insensitive=true
-term=kitty
-allow_images=true
-parse_search=true
-allow_markup=true
-dmenu-parse_action=true
-drun-display_generic=true
-key_down=Tab
-key_expand=Right
-key_forward=Down
+window {
+margin: 0px;
+border: 1px solid #dadada;
+background-color: #050508;
+}
+
+#input {
+margin: 5px;
+border: none;
+color: #e9d8ba;
+background-color: #050508;
+}
+
+#inner-box {
+margin: 5px;
+border: none;
+background-color: #050508;
+}
+
+#outer-box {
+margin: 5px;
+border: none;
+background-color: #050508;
+}
+
+#scroll {
+margin: 0px;
+border: none;
+}
+
+#text {
+margin: 5px;
+border: none;
+color: #e9d8ba;
+}
+
+#entry:selected {
+background-color: transparent;
+}
