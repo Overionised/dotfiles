@@ -1,0 +1,166 @@
+
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "SF Mono", "Material Icons", monospace;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+  color: #eeeeee;
+
+}
+
+#workspaces button {
+  padding: 0 5px;
+  background: #050508;
+  color: #8e8e8e;
+  border-bottom: 2px solid transparent;
+}
+
+#workspaces button.focused {
+  background: #0e0e0e;
+  border-bottom: 2px solid #a0a0a0;
+
+}
+
+#window,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#mode,
+#idle_inhibitor,
+#language,
+#custom-arch,
+#custom-disturb_on,
+#custom-disturb_off,
+#custom-mic,
+#custom-dismiss_notifications,
+#custom-dnd,
+#mpd {
+  background: #050508;
+  padding: 0 8px;
+  margin: 0;
+}
+#cpu{
+	background: #050508;
+}
+#window {
+  border-left: 2px solid #8e8e8e;
+  background: #050508;
+}
+
+#clock {
+  background: #050508;
+  border-bottom: 2px solid #8e8e8e;
+}
+
+#network {
+  background: #050508;
+  border-bottom: 2px solid #aeaeae;
+}
+
+#pulseaudio,
+#wireplumber {
+  border-bottom: 2px solid #848484;
+  background: #050508;
+}
+
+#idle_inhibitor {
+  border-bottom: 2px solid #cc241d;
+  background: #050508;
+}
+
+#idle_inhibitor.activated {
+  background-color: #fb4934;
+  color: white;
+}
+
+#language {
+  border-bottom: 2px solid #8ec07c;
+  background: #050508;
+}
+
+#custom-disturb-on,
+#custom-disturb-off,
+#custom-arch {
+  color: white;
+  background: #e91e63;
+}
+
+#custom-mic {
+  border-bottom: 2px solid transparent;
+  background: #050508;
+}
+
+#custom-mic.not-muted {
+  color: #b8bb26;
+  border-bottom-color: #b8bb26;
+}
+
+#custom-mic.muted {
+  /* color: #fb4934; */
+  border-bottom-color: #fb4934;
+  color: #fbf1c7;
+  background-color: #fb4934;
+}
+
+#custom-dnd {
+  border-bottom: 2px solid #d79921;
+  color: #fadb2f;
+}
+
+#custom-dnd.-on {
+  color: #282828;
+  background-color: #fabd2f;
+}
+
+@keyframes blink {
+  to {
+    background-color: #26a65b;
+    color: #fb4934;
+  }
+}
+
+#battery {
+  background-color: #dadada;
+  color: #050508;
+}
+
+#battery.full {
+  background-color: transparent;
+  color: #050508;
+}
+
+#battery.discharging {
+  color: #050508;
+  background-color: #a9a9a9;
+}
+
+#battery.charging {
+  background-color: #7c7c7c;
+  color: #a9a9a9;
+}
+
+#battery.warning:not(.charging) {
+  background: transparent;
+  color: #e787a6;
+  animation-name: blink;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+#custom-dismiss_notifications {
+  border-bottom: 2px solid #cc241d;
+}
