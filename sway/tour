@@ -1,0 +1,338 @@
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# terminal emulator
+set $term kitty --hold fastfetch --logo "milk"
+
+# application launcher
+set $menu dmenu_path | wofi | xargs swaymsg exec --
+#monitor
+output HDMI-A-1 pos 0 0 mode 3840x2160@60.000Hz scale 1
+#output HDMI-A-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
+output eDP-1  pos 3840 1600  mode 1920x1080 scale 1
+## output eDP-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
+ exec swww-daemon
+ exec swww img /home/ion/Pictures/wallpapers/tour-walls/tourwall3.jpg
+ 
+#power button
+bindsym XF86PowerOff exec kitty --hold cowsay I rebinded that you dimwit
+
+ #actually quitting
+bindsym $mod+XF86PowerOff exec "shutdown -h now"
+
+#inputs
+
+ #mouse
+input "type:pointer" {
+       natural_scroll disabled
+       accel_profile "flat"
+       pointer_accel 0 # set mouse sensitivity (between -1 and 1)
+
+   }
+
+ #czech keyboard
+input "type:keyboard" {
+		xkb_layout cz
+		xkb_variant qwerty
+    }
+
+ #fan of natural scroll
+input "type:touchpad" {
+       dwt enabled
+       tap enabled
+       natural_scroll enabled
+       accel_profile "adaptive"
+       pointer_accel 0.4 # set mouse sensitivity (between -1 and 1)
+
+   }
+input type:tablet_tool map_to_output HDMI-A-1
+#lock
+
+# in progress
+
+#make stuff open quickly
+    exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
+    exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+
+    exec hash dbus-update-activation-environment 2>/dev/null &&
+    exec systemctl --user import-environment
+
+# Window borders
+    default_border pixel 2
+    default_floating_border normal
+    gaps inner 10
+
+
+# Notifications
+    bindsym Control+Space exec makoctl dismiss
+    bindsym Control+Shift+Space exec makoctl dismiss --all
+
+
+# Multimedia
+    bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
+    bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
+    bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+    bindsym --locked XF86AudioPlay exec playerctl play-pause
+    bindsym --locked XF86AudioNext exec playerctl next
+    bindsym --locked XF86AudioPrev exec playerctl previous
+
+# Brightness controls
+    bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+    bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+
+
+# Bindings
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec wofi --show=drun
+
+    # Drag floating windows
+    floating_modifier $mod normal
+
+    # Reload the configuration file
+    bindsym $mod+Shift+c reload
+
+    # Exit sway (logs you out of your Wayland session)
+    bindsym $mod+Shift+e exec swaymsg exit
+
+# Moving around:
+
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+
+# Workspaces:
+    #ws
+    set $ws1     
+    set $ws2     2
+    set $ws3     
+    set $ws4     4
+    set $ws5     5
+    set $ws6     6
+    set $ws7     7
+    set $ws8     8
+    set $ws9     9
+    set $ws10   10
+    set $ws11    
+    set $ws12    
+    set $ws13    
+    set $ws14   14
+    set $ws15   15
+    set $ws16   16
+    set $ws17   17
+    set $ws18   18
+    set $ws19   19
+    set $ws20   20
+    set $wsF1  "F1"
+    set $wsF2  "F2"
+    set $wsF3  "F3"
+    set $wsF4  "F4"
+    set $wsF5  "F5"
+    set $wsF6  "F6"
+    set $wsF7  "F7"
+    set $wsF8  "F8"
+    set $wsF9  "F9"
+    set $wsF10 "F10"
+    set $wsF11 "F11"
+    set $wsF12 "F12"
+
+    #switch workspace to monitor
+    bindsym $mod+m move workspace to output left
+    bindsym $mod+n move workspace to output right
+    bindsym $mod+Control+Shift+Right move workspace to output right
+    bindsym $mod+Control+Shift+Left move workspace to output left
+
+    # Switch to workspace
+    bindsym $mod+plus     workspace  $ws1
+    bindsym $mod+ecaron   workspace  $ws2
+    bindsym $mod+scaron   workspace  $ws3
+    bindsym $mod+ccaron   workspace  $ws4
+    bindsym $mod+rcaron   workspace  $ws5
+    bindsym $mod+zcaron   workspace  $ws6
+    bindsym $mod+yacute   workspace  $ws7
+    bindsym $mod+aacute   workspace  $ws8
+    bindsym $mod+iacute   workspace  $ws9
+    bindsym $mod+eacute   workspace  $ws10
+
+    bindsym $mod+Shift+plus     move container to workspace  $ws1
+    bindsym $mod+Shift+ecaron   move container to workspace  $ws2
+    bindsym $mod+Shift+scaron   move container to workspace  $ws3
+    bindsym $mod+Shift+ccaron   move container to workspace  $ws4
+    bindsym $mod+Shift+rcaron   move container to workspace  $ws5
+    bindsym $mod+Shift+zcaron   move container to workspace  $ws6
+    bindsym $mod+Shift+yacute   move container to workspace  $ws7
+    bindsym $mod+Shift+aacute   move container to workspace  $ws8
+    bindsym $mod+Shift+iacute   move container to workspace  $ws9
+    bindsym $mod+Shift+eacute   move container to workspace  $ws10
+
+    #why not above 10
+    bindsym $mod+ctrl+plus     workspace  $ws11
+    bindsym $mod+ctrl+ecaron   workspace  $ws12
+    bindsym $mod+ctrl+scaron   workspace  $ws13
+    bindsym $mod+ctrl+ccaron   workspace  $ws14
+    bindsym $mod+ctrl+rcaron   workspace  $ws15
+    bindsym $mod+ctrl+zcaron   workspace  $ws16
+    bindsym $mod+ctrl+yacute   workspace  $ws17
+    bindsym $mod+ctrl+aacute   workspace  $ws18
+    bindsym $mod+ctrl+iacute   workspace  $ws19
+    bindsym $mod+ctrl+eacute   workspace  $ws20
+
+    bindsym $mod+ctrl+shift+plus     move container to workspace  $ws11
+    bindsym $mod+ctrl+shift+ecaron   move container to workspace  $ws12
+    bindsym $mod+ctrl+shift+scaron   move container to workspace  $ws13
+    bindsym $mod+ctrl+shift+ccaron   move container to workspace  $ws14
+    bindsym $mod+ctrl+shift+rcaron   move container to workspace  $ws15
+    bindsym $mod+ctrl+shift+zcaron   move container to workspace  $ws16
+    bindsym $mod+ctrl+shift+yacute   move container to workspace  $ws17
+    bindsym $mod+ctrl+shift+aacute   move container to workspace  $ws18
+    bindsym $mod+ctrl+shift+iacute   move container to workspace  $ws19
+    bindsym $mod+ctrl+shift+eacute   move container to workspace  $ws20
+
+    # f keys too
+    bindsym $mod+F1    workspace $wsF1
+    bindsym $mod+F2    workspace $wsF2
+    bindsym $mod+F3    workspace $wsF3
+    bindsym $mod+F4    workspace $wsF4
+    bindsym $mod+F5    workspace $wsF5
+    bindsym $mod+F6    workspace $wsF6
+    bindsym $mod+F7    workspace $wsF7
+    bindsym $mod+F8    workspace $wsF8
+    bindsym $mod+F9    workspace $wsF9
+    bindsym $mod+F10   workspace $wsF10
+    bindsym $mod+F11   workspace $wsF11
+    bindsym $mod+F12   workspace $wsF12
+
+
+    bindsym $mod+Shift+F1     move container to workspace $wsF1
+    bindsym $mod+Shift+F2     move container to workspace $wsF2
+    bindsym $mod+Shift+F3     move container to workspace $wsF3
+    bindsym $mod+Shift+F4     move container to workspace $wsF4
+    bindsym $mod+Shift+F5     move container to workspace $wsF5
+    bindsym $mod+Shift+F6     move container to workspace $wsF6
+    bindsym $mod+Shift+F7     move container to workspace $wsF7
+    bindsym $mod+Shift+F8     move container to workspace $wsF8
+    bindsym $mod+Shift+F9     move container to workspace $wsF9
+    bindsym $mod+Shift+F10    move container to workspace $wsF10
+    bindsym $mod+Shift+F11    move container to workspace $wsF11
+    bindsym $mod+Shift+F12    move container to workspace $wsF12
+
+#window classes
+    assign [app_id="discord"]      workspace $ws12
+    assign [app_id="tidal-hifi"]   workspace $ws11
+    assign [app_id="Amberol"]      workspace $ws11
+    assign [app_id="strawberry"]   workspace $ws11
+    assign [app_id="firefox"]      workspace $ws1
+    assign [class="steam"]         workspace $ws13
+
+#autoexec
+
+    exec discord
+    exec flatpak run tidal-hifi
+
+    workspace $ws1
+      exec firefox
+
+    workspace $ws3
+      exec kitty
+
+    workspace $ws13
+      exec flatpak run com.valvesoftware.Steam
+
+# Layout stuff:
+
+    # splits
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+e layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+Shift+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+# Scratchpad:
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+# Resizing containers:
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#colors
+# class                 border  backgr. text    indicator child_border
+client.focused          #227c6e #227c6e #000000 #227c6e   #227c6e
+client.focused_inactive #665c54 #665c54 #000000 #665c54   #665c54
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
+
+bar { 
+     swaybar_command waybar
+}
+
+include /etc/sway/config.d/*
