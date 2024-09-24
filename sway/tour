@@ -17,13 +17,18 @@ output HDMI-A-1 pos 0 0 mode 3840x2160@60.000Hz scale 1
 output eDP-1  pos 3840 1600  mode 1920x1080 scale 1
 ## output eDP-1 bg /home/ion/Pictures/wallpapers/milk-walls/mw15.png fill
  exec swww-daemon
- exec swww img /home/ion/Pictures/wallpapers/tour-walls/tourwall3.jpg
+ exec swww img /home/ion/Pictures/wallpapers/tour-walls/tourwall3s-cool-upscaled.png
  
 #power button
 bindsym XF86PowerOff exec kitty --hold cowsay I rebinded that you dimwit
 
  #actually quitting
 bindsym $mod+XF86PowerOff exec "shutdown -h now"
+
+
+#screenshot
+bindsym $mod+p  exec grim -g "$(slurp -d)" - | wl-copy -t image/png
+bindsym $mod+Shift+p exec grim - | wl-copy
 
 #inputs
 
@@ -63,7 +68,7 @@ input type:tablet_tool map_to_output HDMI-A-1
     exec systemctl --user import-environment
 
 # Window borders
-    default_border pixel 2
+    default_border pixel 3
     default_floating_border normal
     gaps inner 10
 
@@ -264,7 +269,7 @@ input type:tablet_tool map_to_output HDMI-A-1
       exec kitty
 
     workspace $ws13
-      exec flatpak run com.valvesoftware.Steam
+     # exec flatpak run com.valvesoftware.Steam
 
 # Layout stuff:
 
@@ -325,7 +330,7 @@ bindsym $mod+r mode "resize"
 # class                 border  backgr. text    indicator child_border
 client.focused          #dadada #dadada #000000 #dadada   #dadada
 client.focused_inactive #dadada #dadada #000000 #dadada   #dadada
-client.unfocused        #0b0b0b #0b0b0b #ffffff #898989   #898989
+client.unfocused        #0b0b0b #0b0b0b #ffffff #898989   #0088FF20
 client.urgent           #898989 #0b0b0b #898989 #898989   #898989
 client.placeholder      #000000 #0b0b0b #898989 #898989   #898989
 
