@@ -1,0 +1,115 @@
+# Start AeroSpace at login
+start-at-login = true
+
+# Gaps between windows
+[gaps]
+inner.horizontal = 10
+inner.vertical = 10
+outer.left = 0
+outer.bottom = 0
+outer.top = 0
+outer.right = 0
+
+[key-mapping]
+preset = "qwerty"
+
+[mode.main.binding]
+
+# Window management
+ctrl-q = "close"
+
+# Application launcher
+ctrl-d = """exec-and-forget osascript -e '
+tell application "System Events"
+    keystroke " "
+    key code 49 using {command down}
+end tell'
+"""
+
+# Reload config
+ctrl-shift-c = "reload-config"
+
+# Exit AeroSpace
+ctrl-shift-e = """exec-and-forget osascript -e '
+tell application "System Events" to log out'
+"""
+
+# Navigation (focus)
+ctrl-h = "focus left"
+ctrl-j = "focus down"
+ctrl-k = "focus up"
+ctrl-l = "focus right"
+
+# Navigation (move)
+ctrl-shift-h = "move left"
+ctrl-shift-j = "move down"
+ctrl-shift-k = "move up"
+ctrl-shift-l = "move right"
+
+# Workspaces (switch)
+ctrl-1 = "workspace 1"
+ctrl-2 = "workspace 2"
+ctrl-3 = "workspace 3"
+ctrl-4 = "workspace 4"
+ctrl-5 = "workspace 5"
+ctrl-6 = "workspace 6"
+ctrl-7 = "workspace 7"
+ctrl-8 = "workspace 8"
+ctrl-9 = "workspace 9"
+ctrl-0 = "workspace 10"
+
+# Workspaces (move container)
+ctrl-shift-1 = "move-node-to-workspace 1"
+ctrl-shift-2 = "move-node-to-workspace 2"
+ctrl-shift-3 = "move-node-to-workspace 3"
+ctrl-shift-4 = "move-node-to-workspace 4"
+ctrl-shift-5 = "move-node-to-workspace 5"
+ctrl-shift-6 = "move-node-to-workspace 6"
+ctrl-shift-7 = "move-node-to-workspace 7"
+ctrl-shift-8 = "move-node-to-workspace 8"
+ctrl-shift-9 = "move-node-to-workspace 9"
+ctrl-shift-0 = "move-node-to-workspace 10"
+
+# Layout management
+ctrl-b = "layout tiles horizontal vertical"
+ctrl-v = "layout tiles vertical horizontal"
+ctrl-s = "layout accordion horizontal vertical"
+ctrl-w = "layout accordion vertical horizontal"
+ctrl-e = "layout tiling floating"
+
+# Fullscreen and floating
+ctrl-f = "fullscreen"
+ctrl-shift-space = "layout floating tiling"
+
+
+# Resize mode
+ctrl-r = "mode resize"
+
+[mode.resize.binding]
+ctrl-h = "resize smart -50"
+ctrl-j = "resize smart +50"
+ctrl-k = "resize smart -50"
+ctrl-l = "resize smart +50"
+esc = "mode main"
+enter = "mode main"  # Changed from 'return' to 'enter'
+
+# Scratchpad
+ctrl-shift-minus = "move-node-to-workspace scratchpad"
+ctrl-minus = "workspace scratchpad"
+
+# Application-specific workspace assignments
+[[on-window-detected]]
+if.app-id = "discord"
+run = "move-node-to-workspace 12"
+
+[[on-window-detected]]
+if.app-id = "tidal-hifi"
+run = "move-node-to-workspace 11"
+
+[[on-window-detected]]
+if.app-id = "firefox"
+run = "move-node-to-workspace 1"
+
+[[on-window-detected]]
+if.app-id = "steam"
+run = "move-node-to-workspace 13"
