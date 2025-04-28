@@ -1,5 +1,8 @@
 set $mod Mod4
 
+#fx
+
+
 # Home row direction keys, like vim
 set $left h
 set $down j
@@ -55,7 +58,7 @@ input "type:touchpad" {
        pointer_accel 0.4 # set mouse sensitivity (between -1 and 1)
 
    }
-input type:tablet_tool map_to_output HDMI-A-1
+#input type:tablet_tool map_to_output HDMI-A-1
 #lock
 
 # in progress
