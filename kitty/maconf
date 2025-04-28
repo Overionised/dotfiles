@@ -1,0 +1,48 @@
+hide_window_decorations titlebar-only
+allow_remote_control=yes
+enabled_layouts=tall
+confirm_os_window_close 0
+
+
+
+# gruvbox colors for Kitty
+  background_blur 1
+  background_opacity 0.9
+
+  background #060606
+  foreground #d4be98
+  selection_background #3c3836
+  selection_foreground #d4be98
+  url_color #a9b665
+  cursor #d4be98
+
+  # Tabs
+  active_tab_background #ea6962
+  active_tab_foreground #17191a
+  inactive_tab_background #3c3836
+  inactive_tab_foreground #d4be98
+  #tab_bar_background #1D2021
+
+  # normal
+  color0 #1D2021
+  color1 #b16286
+  color2 #a9b665
+  color3 #d8a657
+  color4 #7daea3
+  color5 #d3869b
+  color6 #89b482
+  color7 #d4be98
+
+  # bright
+  color8 #5a524c
+  color9 #d3869b
+  color10 #b8bb26
+  color11 #d8a657
+  colorm2 #BED6D1
+  color13 #d3869b
+  color14 #A0C39B
+  color15 #D8C4A2
+
+  # extended colors
+  color16 #e78a4e
+  color17 #c14a4a
